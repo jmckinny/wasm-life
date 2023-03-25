@@ -98,6 +98,7 @@ const renderLoop = () => {
     animationId = requestAnimationFrame(renderLoop);
 };
 
+// Pause play features
 const playPauseButton = document.getElementById("play-pause");
 
 const isPaused = () => {
@@ -123,3 +124,12 @@ playPauseButton.addEventListener("click", event => {
     }
 });
 
+// Frame by frame animation
+const nextTickButton = document.getElementById("next-tick");
+nextTickButton.addEventListener("click", event => {
+    if (isPaused()) {
+        universe.tick();
+        drawGrid();
+        drawCells();
+    }
+});
