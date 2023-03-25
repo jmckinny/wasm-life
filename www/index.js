@@ -1,7 +1,7 @@
 import { Universe, Cell } from "wasm-life";
 import { memory } from "wasm-life/wasm_life_bg";
 
-const DEFAULT_SIZE = 128;
+const DEFAULT_SIZE = 64;
 const CELL_SIZE = 10; // px
 const GRID_COLOR = "#CCCCCC";
 const DEAD_COLOR = "#FFFFFF";
