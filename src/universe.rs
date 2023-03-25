@@ -135,6 +135,12 @@ impl Universe {
         let idx = self.get_index(row, column);
         self.cells[idx].toggle();
     }
+
+    pub fn clear(&mut self) {
+        for cell in self.cells.iter_mut() {
+            *cell = Cell::Dead;
+        }
+    }
 }
 
 impl Default for Universe {

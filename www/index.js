@@ -204,3 +204,11 @@ max of last 100 = ${Math.round(max)}
     }
 };
 fps.render();
+// Clear button
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", event => {
+    universe.clear();
+    universe.tick();
+    drawGrid();
+    drawCells();
+});
