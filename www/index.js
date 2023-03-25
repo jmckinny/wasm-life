@@ -97,6 +97,15 @@ const renderLoop = () => {
 
     animationId = requestAnimationFrame(renderLoop);
 };
+// Frame by frame animation
+const nextTickButton = document.getElementById("next-tick");
+nextTickButton.addEventListener("click", event => {
+    if (isPaused()) {
+        universe.tick();
+        drawGrid();
+        drawCells();
+    }
+});
 
 // Pause play features
 const playPauseButton = document.getElementById("play-pause");
@@ -107,12 +116,19 @@ const isPaused = () => {
 
 const play = () => {
     playPauseButton.textContent = "⏸";
+    playPauseButton.classList.remove("green-bg");
+    playPauseButton.classList.add("yellow-bg");
+    document.getElementById("next-tick").disabled = true;
+
     renderLoop();
 };
 
 const pause = () => {
     playPauseButton.textContent = "▶";
     cancelAnimationFrame(animationId);
+    playPauseButton.classList.remove("yellow-bg");
+    playPauseButton.classList.add("green-bg");
+    document.getElementById("next-tick").disabled = false;
     animationId = null;
 };
 
@@ -124,12 +140,3 @@ playPauseButton.addEventListener("click", event => {
     }
 });
 
-// Frame by frame animation
-const nextTickButton = document.getElementById("next-tick");
-nextTickButton.addEventListener("click", event => {
-    if (isPaused()) {
-        universe.tick();
-        drawGrid();
-        drawCells();
-    }
-});

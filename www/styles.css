@@ -1,4 +1,10 @@
+html {
+    font-size: 14px;
+}
+
 body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -8,4 +14,22 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.controls {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+button {
+    width: 4rem;
+    height: 2rem;
+}
+
+.yellow-bg {
+    background-color: yellow;
+}
+
+.green-bg {
+    background-color: green;
 }
