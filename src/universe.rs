@@ -1,13 +1,7 @@
 use std::fmt;
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
-#[repr(u8)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Cell {
-    Dead = 0,
-    Alive = 1,
-}
+use crate::cell::Cell;
 
 #[wasm_bindgen]
 pub struct Universe {
@@ -106,6 +100,11 @@ impl Universe {
 
     pub fn cells(&self) -> *const Cell {
         self.cells.as_ptr()
+    }
+
+    pub fn toggle_cell(&mut self, row: u32, column: u32) {
+        let idx = self.get_index(row, column);
+        self.cells[idx].toggle();
     }
 }
 

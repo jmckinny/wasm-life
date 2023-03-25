@@ -1,3 +1,4 @@
+mod cell;
 mod universe;
 mod utils;
 
